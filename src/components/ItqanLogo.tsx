@@ -7,6 +7,10 @@ interface ItqanLogoProps {
   className?: string;
 }
 
+// Resolve the logo through Vite so it is included correctly
+// when the project is built and deployed.
+const logoUrl = new URL('../../logo.png', import.meta.url).href;
+
 export const ItqanLogo: React.FC<ItqanLogoProps> = ({
   size = 'md',
   className = '',
@@ -21,7 +25,7 @@ export const ItqanLogo: React.FC<ItqanLogoProps> = ({
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <img
-        src="/logo.png"
+        src={logoUrl}
         alt="Itqan English"
         className={`${sizeMap[size]} w-auto object-contain`}
       />
